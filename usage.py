@@ -5,7 +5,7 @@ Created on Mon Jan 18 19:02:21 2021
 
 @author: rakiki
 """
-from RpcFit import rpc_fit
+from rpcfit import rpc_fit
 import numpy as np
 
 locs_train = np.load('./data/s1_train3d.npy')

@@ -1,5 +1,5 @@
 import numpy as np
-from RpcFit import Lcurve
+from rpcfit import Lcurve
 from rpcm import rpc_model 
 
 def poly_vect(x, y, z):
