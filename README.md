@@ -10,9 +10,11 @@ To install requirements :
 To test the installation: `python usage.py`
 
 The package contains: 
-- `gridata.py`: Has the necessary functions to construct the 3D+2D point grid correspondence (CoNtrol Point & ChecK Point). Needs a projection function or a localization function from a physical sensor model. A physical sensor model for the Sentinel-1 satellite may be made available in the future. Otherwise, consider using snappy for Sentinel-1
--`Lcurve.py`: Has the necessary function to do the Lcurve criterion with the standard Tikhonov, or with a set of discrete points by using the spline curve interpolation
--`rpc_fit`: Has the necessary functions to fit the rpc on the constructed grids. use `calibrate_rpc`. Other functions are internal helper funcs
+- `gridata.py`: Has the necessary functions to construct the 3D+2D point grid correspondence (CoNtrol Point & ChecK Point). Needs a projection function or a localization function from a physical sensor model. A physical sensor model for the Sentinel-1 satellite may be made available in the future. Otherwise, consider using snappy for Sentinel\-1.
+
+- `Lcurve.py`: Has the necessary function to do the Lcurve criterion with the standard Tikhonov, or with a set of discrete points by using the spline curve interpolation.
+
+- `rpc_fit`: Has the necessary functions to fit the rpc on the constructed grids. use `calibrate_rpc`. Other functions are internal helper funcs.
 
 The **data** folder contains datasets for the test in `usage.py`: 
 - *2d* refers to image coordinates *x, y*
