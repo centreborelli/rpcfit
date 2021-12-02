@@ -4,6 +4,8 @@
 Created on Wed Sep 23 13:08:19 2020
 
 @author: rakiki
+
+Inspired by lcurve implementation from https://github.com/eric-brandao/lcurve
 """
 from scipy import interpolate,optimize,linalg
 import numpy as np
