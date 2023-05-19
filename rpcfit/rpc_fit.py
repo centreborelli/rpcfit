@@ -52,6 +52,7 @@ def calculate_RMSE_row_col(rpc, input_locs, target):
     MSE_row_col = np.mean([MSE_col, MSE_row]) # the number of data is equal in MSE_col and MSE_row
     RMSE_row_col = np.sqrt(MSE_row_col)
     return RMSE_row_col
+
 def evaluate(rpc, input_locs, target):
     '''
     Args: 
@@ -65,6 +66,24 @@ def evaluate(rpc, input_locs, target):
     '''
     col_pred, row_pred = rpc.projection(lon=input_locs[:,0], lat=input_locs[:,1], alt=input_locs[:,2])
     error = np.hstack([col_pred.reshape(-1, 1), row_pred.reshape(-1, 1)]) - target
+    max_err = np.amax(np.abs(error), axis = 0)
+    RMSE = np.sqrt(np.mean(error**2, axis = 0))
+    planimetry = np.linalg.norm(error, axis = 1)
+    return RMSE , max_err, planimetry
+
+def evaluate_localization(rpc, input_locs, target):
+    '''
+    Args: 
+    rpc: RPCModel obj
+    input_locs: Nx3 (lon, lat, alt)
+    target: Nx2 (col, row)
+    Returns:
+    RMSE (lon, lat) 
+    max_err tuple (lon, lat) ,
+    planimetry Nx1 (error))
+    '''
+    lon_pred, lat_pred = rpc.localization(col=target[:,0], row=target[:,1], alt=input_locs[:,2])
+    error = np.hstack([lon_pred.reshape(-1, 1), lat_pred.reshape(-1, 1)]) - input_locs[:,:2]
     max_err = np.amax(np.abs(error), axis = 0)
     RMSE = np.sqrt(np.mean(error**2, axis = 0))
     planimetry = np.linalg.norm(error, axis = 1)
