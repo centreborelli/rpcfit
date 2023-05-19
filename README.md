@@ -1,12 +1,31 @@
 # rpcfit
-`rpcfit` is a python module corresponding to the IGARSS 2021 paper submission 
+`rpcfit` is a python module that enables the robust fitting of rational polynomial camera models. 
+
+The algorithm is described in the IGARSS 2021 paper:
+
 *Robust Rational Polynomial Camera Modelling for SAR and Pushbroom Imaging*
 
-Preprint available at [arxiv](https://arxiv.org/abs/2102.13423)  
+doi: [10.1109/igarss47720.2021.9554583](10.1109/igarss47720.2021.9554583) 
 
-To install requirements : 
-	`pip install -r requirements.txt`
+Preprint available at [arxiv](https://arxiv.org/abs/2102.13423)  and [hal](hal-03189163)
 
+Citation:
+
+	@inproceedings{akiki2021robust,
+	  title={Robust rational polynomial camera modelling for SAR and pushbroom imaging},
+	  author={Akiki, Roland and Mar{\'\i}, Roger and De Franchis, Carlo and Morel, Jean-Michel and Facciolo, Gabriele},
+	  booktitle={2021 IEEE International Geoscience and Remote Sensing Symposium IGARSS},
+	  pages={7908--7911},
+	  year={2021},
+	  organization={IEEE}
+	}
+
+# Installation
+To reproduce the environment used for the paper, checkout the tag "paper", then install requirements : 
+
+	pip install -r requirements.txt
+
+# Content
 To test the installation: `python usage.py`
 
 The package contains: 
@@ -21,6 +40,3 @@ The **data** folder contains datasets for the test in `usage.py`:
 - *3d* refers to *lon, lat, height* coordinates
 - *train* refers to the *training set*
 - *test* refers to the *test set*
-
-
-
