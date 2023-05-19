@@ -1,3 +1,4 @@
+from typing import Optional
 import numpy as np
 from rpcfit import Lcurve
 from rpcm import rpc_model 
@@ -378,7 +379,8 @@ def init_rpc(target, input_locs):
       
 def calibrate_rpc( target, input_locs, separate = True, tol=1e-2
                   , max_iter=20, method = "initLcurve", plot = False, 
-                  orientation = "projection", get_log = False):
+                  orientation = "projection", get_log = False,
+                  init: Optional[rpc_model.RPCModel] = None):
     '''
     fits the coefficients of an RPCModel instance with
     regularized weighted least squares on 3D -> 2D grid correspondence
@@ -401,8 +403,8 @@ def calibrate_rpc( target, input_locs, separate = True, tol=1e-2
     Returns: 
         rpc_calib: calibrated RPCModel instance
     '''
-    # initialize an empty rpc instance
-    rpc_calib = init_rpc(target, input_locs)
+    # if not given, initialize an empty rpc instance
+    rpc_calib = init or init_rpc(target, input_locs)
     if orientation == "projloc":
         orientlist = ["projection", "localization"]
     else: 
